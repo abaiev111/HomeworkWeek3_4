@@ -37,7 +37,6 @@ public class JsonToXMLClass {
                 map.put(tv.getType(), map.get(tv.getType()) + tv.getFine_amount());
               else
                 map.put(tv.getType(), tv.getFine_amount());
-
         }
         Map<String,Long> sortedMap = map.entrySet().stream()
                 .sorted(Map.Entry.comparingByValue(Comparator.reverseOrder()))

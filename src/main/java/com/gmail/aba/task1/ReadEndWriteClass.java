@@ -34,7 +34,7 @@ public class ReadEndWriteClass {
                 if (string.equals("s\\w*=\"(.*?\") (n\\w*=\".*?)\"")) {
                     String name = matcher1.group(2);
                     String surname = matcher1.group(1);
-                    text = text.replaceAll(matcher1.group(), name + " " + surname);
+                    text = text.replaceAll(matcher1.group(),name + " " + surname);
                 }
 
                 String name = matcher1.group(1);
