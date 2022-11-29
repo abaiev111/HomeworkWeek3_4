@@ -10,13 +10,14 @@ public class ReadEndWriteClass {
     List<String> list = List.of("(n\\w*=\".*?)\" s\\w*=\"(.*?\")",
             "s\\w*=\"(.*?\") (n\\w*=\".*?)\"",
             "(n\\w* = \".*?)\"\\n *s\\w* = \"(.*?\")",
-            "(n\\w*=\".*?)\"\\n *s\\w*=\"(.*?\")");
+            "(n\\w*=\".*?)\"\\n *s\\w*=\"(.*?\")",
+            "(n\\w*= \".*?)\" s\\w* = \"(.*?\")");
 
     public String readFromFile(String path)  {
         StringBuilder sb = new StringBuilder();
         try (BufferedReader br = new BufferedReader(new FileReader(path))) {
             String line;
-            for ( ;(line = br.readLine()) != null; ) {
+            while ((line = br.readLine()) != null) {
                 sb.append(line).append("\n");
             }
         } catch (IOException ex) {

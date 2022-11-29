@@ -1,18 +1,20 @@
-package com.gmail.aba.task2;
+package com.gmail.aba.example;
 
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.gmail.aba.task2.TrafficViolation;
 
 import java.beans.XMLEncoder;
 import java.io.*;
 import java.util.*;
 import java.util.stream.Collectors;
 
-public class JsonToXMLClass {
+public class JsonToXMLClass2 {
 
     public List<List<TrafficViolation>> getListJsonObjectsFromFolder() throws IOException {
         ObjectMapper objectMapper = new ObjectMapper();
         List<List<TrafficViolation>> listsTrafficViolation = new ArrayList<>();
+
         File folder = new File("/Users/mishaabaiev/Java/JavaProjects/HomeworkWeek3_4/src/main/java/com/gmail/aba/task2/json/");
         File[] listOfFiles = folder.listFiles();
         for (File file : listOfFiles) {
@@ -36,7 +38,8 @@ public class JsonToXMLClass {
         }
         Map<String,Long> sortedMap = map.entrySet().stream()
                 .sorted(Map.Entry.comparingByValue(Comparator.reverseOrder()))
-                .collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue, (e1, e2) -> e1, LinkedHashMap::new));
+                .collect(Collectors.toMap(
+                        Map.Entry::getKey, Map.Entry::getValue, (e1, e2) -> e1, LinkedHashMap::new));
         return sortedMap;
     }
 
